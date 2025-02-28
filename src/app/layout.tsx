@@ -40,7 +40,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${ptSans.variable} antialiased`}>
         <Navbar />
-        {children}
+        <main className="max-w-screen-lg mx-auto p-4">{children}</main>
       </body>
     </html>
   );
