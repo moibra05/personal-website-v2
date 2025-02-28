@@ -9,12 +9,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primaryBlue: "var(--primary-blue)",
+        secondaryBlue: "var(--secondary-blue)",
+        white1: "var(--white-1)",
       },
       fontFamily: {
         ptsans: ["var(--font-pt-sans)", "sans-serif"],
-      }
+      },
     },
   },
   plugins: [],
