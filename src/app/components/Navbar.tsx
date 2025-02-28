@@ -65,7 +65,12 @@ export default function Navbar() {
               <div
                 className={`${
                   isMenuTransitioning ? "translate-y-0" : "translate-y-28"
-                } transition-transform duration-500`}
+                } font-bold transition-transform ease-in-out`}
+                style={{
+                  transitionDuration: `${
+                    (navLinks.length - index) * 200
+                  }ms`,
+                }} // Set duration dynamically
               >
                 {link.name}
               </div>
@@ -77,8 +82,16 @@ export default function Navbar() {
   );
 
   const desktopMenu = (
-    <div>
-      <p>desktop</p>
+    <div className="flex gap-16">
+      {navLinks.map((link) => (
+        <Link
+          key={link.name}
+          href={link.href}
+          className="py-2 uppercase font-bold"
+        >
+          {link.name}
+        </Link>
+      ))}
     </div>
   );
 
