@@ -2,9 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import Hamburger from "hamburger-react";
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isMenuTransitioning, setIsMenuTransitioning] =
+    useState<boolean>(false);
+
   const MOBILE_WIDTH = 768;
 
   useEffect(() => {
@@ -22,9 +28,51 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const hamburgerMenu = (
+  // Adds delay to hamburger menu section animation so that it's actually visible
+  useEffect(() => {
+    if (isMenuOpen) {
+      setTimeout(() => setIsMenuTransitioning(true), 10);
+    } else {
+      setIsMenuTransitioning(false);
+    }
+  }, [isMenuOpen]);
+
+  const navLinks = [
+    { name: "Home", href: "" },
+    { name: "About", href: "" },
+    { name: "Projects", href: "" },
+    { name: "Contact", href: "" },
+  ];
+
+  const mobileMenu = (
     <div>
-      <p>mobile</p>
+      <div className="absolute top-0 right-0 p-4 z-50">
+        <Hamburger
+          rounded
+          label="Show menu"
+          toggled={isMenuOpen}
+          toggle={setIsMenuOpen}
+        />
+      </div>
+      {isMenuOpen && (
+        <div className="absolute top-0 left-0 w-full h-full bg-primaryBlue text-white1 flex flex-col items-center justify-center">
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-2xl py-2 overflow-hidden"
+            >
+              <div
+                className={`${
+                  isMenuTransitioning ? "translate-y-0" : "translate-y-28"
+                } transition-transform duration-500`}
+              >
+                {link.name}
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 
@@ -37,7 +85,7 @@ export default function Navbar() {
   return (
     <nav className="bg-primaryBlue p-4 pl-0 flex justify-between items-center shadow-lg text-white1">
       <Image src="/logo-no-background.png" alt="Logo" width={70} height={70} />
-      {isMobile ? hamburgerMenu : desktopMenu}
+      {isMobile ? mobileMenu : desktopMenu}
     </nav>
   );
 }
