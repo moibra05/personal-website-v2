@@ -60,6 +60,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              onClick={() => setIsMenuOpen(false)}
               className="text-2xl py-2 overflow-hidden"
             >
               <div
@@ -95,7 +96,13 @@ export default function Navbar() {
 
   return (
     <nav className="bg-primaryBlue p-4 pl-0 flex justify-between items-center shadow-lg text-white1">
-      <Image src="/logo-no-background.png" alt="Logo" width={70} height={70} />
+      <Image
+        src="/logo-no-background.png"
+        alt="Logo"
+        width={70}
+        height={70}
+        className="z-50"
+      />
       {isMobile ? mobileMenu : desktopMenu}
     </nav>
   );
