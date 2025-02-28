@@ -67,9 +67,7 @@ export default function Navbar() {
                   isMenuTransitioning ? "translate-y-0" : "translate-y-28"
                 } font-bold transition-transform ease-in-out`}
                 style={{
-                  transitionDuration: `${
-                    (navLinks.length - index) * 200
-                  }ms`,
+                  transitionDuration: `${(navLinks.length - index) * 200}ms`,
                 }} // Set duration dynamically
               >
                 {link.name}
@@ -84,13 +82,13 @@ export default function Navbar() {
   const desktopMenu = (
     <div className="flex gap-16">
       {navLinks.map((link) => (
-        <Link
-          key={link.name}
-          href={link.href}
-          className="py-2 uppercase font-bold"
-        >
-          {link.name}
-        </Link>
+        <div key={link.name} className="group relative">
+          <Link href={link.href} className="py-2 uppercase font-bold">
+            {link.name}
+          </Link>
+          {/* Animated Underline */}
+          <div className="h-[2px] w-full bg-white1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+        </div>
       ))}
     </div>
   );
