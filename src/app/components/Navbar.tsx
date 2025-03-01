@@ -37,7 +37,7 @@ export default function Navbar() {
     }
   }, [isMenuOpen]);
 
-  const navLinks = ["Home", "About", "Projects", "Contact"];
+  const navLinks = ["Home", "About", "Experience", "Projects", "Contact"];
 
   const mobileMenu = (
     <div>
