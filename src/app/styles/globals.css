@@ -4,9 +4,9 @@
 
 :root {
   --primary: #0e1a35;
-  --secondary: #3B82F6;
-  --white-1: #F8FAFC;
-  --text-gray: #E2E8F0;
+  --secondary: #3b82f6;
+  --white-1: #f8fafc;
+  --text-gray: #e2e8f0;
 }
 
 * {
@@ -36,11 +36,29 @@ h6 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+
+h3 {
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 640px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
 }
