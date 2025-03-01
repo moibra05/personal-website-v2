@@ -38,9 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ptSans.variable} antialiased`}>
+      <body className={`${ptSans.variable} antialiased bg-primary`}>
         <Navbar />
-        <main className="max-w-screen-lg mx-auto p-4">{children}</main>
+        <main className="max-w-screen-lg mx-auto px-4">{children}</main>
       </body>
     </html>
   );

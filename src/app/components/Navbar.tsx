@@ -55,7 +55,7 @@ export default function Navbar() {
         />
       </div>
       {isMenuOpen && (
-        <div className="absolute top-0 left-0 w-full h-full bg-primaryBlue text-white1 flex flex-col items-center justify-center">
+        <div className="absolute top-0 left-0 w-full h-full bg-primary text-white1 flex flex-col items-center justify-center">
           {navLinks.map((link, index) => (
             <Link
               key={link.name}
@@ -95,7 +95,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="bg-primaryBlue p-4 pl-0 flex justify-between items-center shadow-lg text-white1">
+    <nav className="absolute top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-lg text-white1">
       <Image
         src="/logo-no-background.png"
         alt="Logo"

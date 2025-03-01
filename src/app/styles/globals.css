@@ -3,13 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --primary-blue: #005aa4;
-  --secondary-blue: #08121c;
-  --white-1: #f7f6f9;
+  --primary: #0e1a35;
+  --secondary: #3B82F6;
+  --white-1: #F8FAFC;
+  --text-gray: #E2E8F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   color: var(--secondary);
   background: var(--white-1);
   font-family: var(--font-pt-sans);
+}
+
+a {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-pt-sans);
+  color: white;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
 }

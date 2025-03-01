@@ -9,8 +9,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryBlue: "var(--primary-blue)",
-        secondaryBlue: "var(--secondary-blue)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        textGray: "var(--text-gray)",
         white1: "var(--white-1)",
       },
       fontFamily: {
