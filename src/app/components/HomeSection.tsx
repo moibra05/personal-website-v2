@@ -5,7 +5,10 @@ import { faEnvelope, faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 
 export default function HomeSection() {
   return (
-    <div className="flex flex-col w-fit h-screen justify-center mx-auto">
+    <div
+      id="home"
+      className="flex flex-col w-fit h-screen justify-center mx-auto"
+    >
       <div className="flex items-center gap-2">
         <FontAwesomeIcon icon={faLocationArrow} className="w-4 text-red-800" />
         <h3>Toronto, ON</h3>
@@ -13,7 +16,7 @@ export default function HomeSection() {
       <h1 className="flex flex-col leading-snug">
         <span className="text-xl sm:text-2xl">Hello,</span> I&apos;m Mohamed
       </h1>
-      <h2>Software Engineer | Web Developer | Problem Solver</h2>
+      <h2 className="text-base sm:text-xl">Software Engineer | Web Developer | Problem Solver</h2>
       <div className="flex justify-center gap-4 mt-2">
         <Link
           className="text-white border-[3px] rounded-full p-1 group hover:cursor-pointer hover:border-secondary transition-colors duration-300"
