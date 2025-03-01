@@ -3,13 +3,62 @@
 @tailwind utilities;
 
 :root {
-  --primary-blue: #005aa4;
-  --secondary-blue: #08121c;
-  --white-1: #f7f6f9;
+  --primary: #0e1a35;
+  --secondary: #3b82f6;
+  --white-1: #f8fafc;
+  --text-gray: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--secondary);
+  color: white;
   background: var(--white-1);
   font-family: var(--font-pt-sans);
+}
+
+a {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-pt-sans);
+  color: white;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 640px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
 }

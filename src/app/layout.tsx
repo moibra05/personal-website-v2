@@ -38,9 +38,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ptSans.variable} antialiased`}>
+      <body className={`${ptSans.variable} antialiased bg-primary relative`}>
         <Navbar />
-        {children}
+        <main className="max-w-screen-lg mx-auto px-4">{children}</main>
+        <footer className="absolute bottom-0 w-full text-center py-2 -z-10">&copy; {new Date().getFullYear()} Mohamed Ibrahim</footer>
       </body>
     </html>
   );

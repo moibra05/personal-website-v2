@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-scroll";
 import Hamburger from "hamburger-react";
 
 export default function Navbar() {
@@ -37,12 +37,7 @@ export default function Navbar() {
     }
   }, [isMenuOpen]);
 
-  const navLinks = [
-    { name: "Home", href: "" },
-    { name: "About", href: "" },
-    { name: "Projects", href: "" },
-    { name: "Contact", href: "" },
-  ];
+  const navLinks = ["Home", "About", "Projects", "Contact"];
 
   const mobileMenu = (
     <div>
@@ -55,11 +50,11 @@ export default function Navbar() {
         />
       </div>
       {isMenuOpen && (
-        <div className="absolute top-0 left-0 w-full h-full bg-primaryBlue text-white1 flex flex-col items-center justify-center">
+        <div className="absolute top-0 left-0 w-full h-screen bg-primary text-white1 flex flex-col items-center justify-center">
           {navLinks.map((link, index) => (
             <Link
-              key={link.name}
-              href={link.href}
+              key={link}
+              to={link.toLowerCase()}
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl py-2 overflow-hidden"
             >
@@ -71,7 +66,7 @@ export default function Navbar() {
                   transitionDuration: `${(navLinks.length - index) * 200}ms`,
                 }} // Set duration dynamically
               >
-                {link.name}
+                {link}
               </div>
             </Link>
           ))}
@@ -83,9 +78,13 @@ export default function Navbar() {
   const desktopMenu = (
     <div className="flex gap-16">
       {navLinks.map((link) => (
-        <div key={link.name} className="group relative">
-          <Link href={link.href} className="py-2 uppercase font-bold">
-            {link.name}
+        <div key={link} className="group relative">
+          <Link
+            key={link}
+            to={link.toLowerCase()}
+            className="py-2 uppercase font-bold"
+          >
+            {link}
           </Link>
           {/* Animated Underline */}
           <div className="h-[2px] w-full bg-white1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
@@ -95,7 +94,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="bg-primaryBlue p-4 pl-0 flex justify-between items-center shadow-lg text-white1">
+    <nav className="absolute top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1">
       <Image
         src="/logo-no-background.png"
         alt="Logo"

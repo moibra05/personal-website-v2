@@ -9,13 +9,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryBlue: "var(--primary-blue)",
-        secondaryBlue: "var(--secondary-blue)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        textGray: "var(--text-gray)",
         white1: "var(--white-1)",
       },
       fontFamily: {
         ptsans: ["var(--font-pt-sans)", "sans-serif"],
       },
+      boxShadow: {
+        "navbar-shadow": "0 0px 50px rgba(60, 131, 246, 0.4)",
+      }
     },
   },
   plugins: [],
