@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-scroll";
 import Hamburger from "hamburger-react";
 
 export default function Navbar() {
