@@ -55,6 +55,8 @@ export default function Navbar() {
             <Link
               key={link}
               to={link.toLowerCase()}
+              smooth={true}
+              duration={400}
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl py-2 overflow-hidden"
             >
@@ -81,20 +83,22 @@ export default function Navbar() {
         <div key={link} className="group relative">
           <Link
             key={link}
+            smooth={true}
+            duration={400}
             to={link.toLowerCase()}
-            className="py-2 uppercase font-bold"
+            className="py-2 uppercase font-bold group-hover:text-secondary transition-colors duration-200"
           >
             {link}
           </Link>
           {/* Animated Underline */}
-          <div className="h-[2px] w-full bg-white1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+          <div className="h-[2px] w-full bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
         </div>
       ))}
     </div>
   );
 
   return (
-    <nav className="absolute top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1">
+    <nav className="fixed top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1">
       <Image
         src="/logo-no-background.png"
         alt="Logo"
