@@ -17,6 +17,9 @@ export default {
       fontFamily: {
         ptsans: ["var(--font-pt-sans)", "sans-serif"],
       },
+      boxShadow: {
+        "navbar-shadow": "0 0px 50px rgba(60, 131, 246, 0.4)",
+      }
     },
   },
   plugins: [],

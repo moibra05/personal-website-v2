@@ -95,7 +95,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="absolute top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-lg text-white1">
+    <nav className="absolute top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1">
       <Image
         src="/logo-no-background.png"
         alt="Logo"
