@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Link } from "react-scroll";
+import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 import Hamburger from "hamburger-react";
 
 export default function Navbar() {
@@ -39,6 +40,35 @@ export default function Navbar() {
 
   const navLinks = ["Home", "About", "Experience", "Projects", "Contact"];
 
+  const desktopResumeLink = (
+    <Link
+      href="/mohamed_ibrahim_resume.pdf"
+      target="_blank"
+      className="text-white uppercase font-bold hover:text-secondary hover:border-secondary transition-colors duration-200 border-2 px-2 py-1 text-xs"
+    >
+      Resume
+    </Link>
+  );
+
+  const mobileResumeLink = (
+    <Link
+      href="/mohamed_ibrahim_resume.pdf"
+      target="_blank"
+      className="text-white font-bold mt-10 text-2xl overflow-hidden"
+    >
+      <div
+        className={`${
+          isMenuTransitioning ? "translate-y-0" : "translate-y-28"
+        } font-bold transition-transform ease-in-out border-2 px-2 py-1`}
+        style={{
+          transitionDuration: `${(navLinks.length + 2) * 200}ms`,
+        }} // Set duration dynamically
+      >
+        Resume
+      </div>
+    </Link>
+  );
+
   const mobileMenu = (
     <div>
       <div className="absolute top-0 right-0 p-4 z-50">
@@ -52,7 +82,7 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="absolute top-0 left-0 w-full h-screen bg-primary text-white1 flex flex-col items-center justify-center">
           {navLinks.map((link, index) => (
-            <Link
+            <ScrollLink
               key={link}
               to={link.toLowerCase()}
               smooth={true}
@@ -70,18 +100,19 @@ export default function Navbar() {
               >
                 {link}
               </div>
-            </Link>
+            </ScrollLink>
           ))}
+          {mobileResumeLink}
         </div>
       )}
     </div>
   );
 
   const desktopMenu = (
-    <div className="flex gap-16">
+    <div className="flex gap-12 items-center">
       {navLinks.map((link) => (
         <div key={link} className="group relative">
-          <Link
+          <ScrollLink
             key={link}
             smooth={true}
             duration={400}
@@ -89,11 +120,12 @@ export default function Navbar() {
             className="py-2 uppercase font-bold group-hover:text-secondary transition-colors duration-200"
           >
             {link}
-          </Link>
+          </ScrollLink>
           {/* Animated Underline */}
           <div className="h-[2px] w-full bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
         </div>
       ))}
+      {desktopResumeLink}
     </div>
   );
 
