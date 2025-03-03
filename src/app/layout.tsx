@@ -8,6 +8,7 @@ import "./styles/globals.css";
 const ptSans = PT_Sans({
   variable: "--font-pt-sans",
   weight: ["400", "700"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -40,7 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ptSans.variable} antialiased bg-primary relative overflow-x-hidden`}>
+      <body
+        className={`${ptSans.variable} antialiased bg-primary relative overflow-x-hidden`}
+      >
         <Navbar />
         {children}
         <Toaster
