@@ -12,6 +12,7 @@ export default function ContactSection() {
     try {
       await axios.post("/contact", values);
       toast.success("Message sent successfully!");
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error(`Failed to send message. Please try again later.`);
     } finally {
