@@ -3,7 +3,7 @@ import ExperienceCard from "../ExperienceCard";
 
 export default function AboutSection() {
   return (
-    <div className="flex flex-col gap-16 md:gap-24 min-h-screen mb-32 justify-center">
+    <div className="flex flex-col gap-16 md:gap-24 min-h-screen justify-center">
       <section
         id="about"
         className="flex flex-col-reverse gap-8 justify-center md:grid grid-cols-[2fr_3fr] items-center"
