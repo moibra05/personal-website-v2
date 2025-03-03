@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 export default function ContactSection() {
-  const onSubmit = (value) => {
+  const onSubmit = () => {
     console.log(values);
   };
 
