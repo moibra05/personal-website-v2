@@ -1,9 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import ExperienceCard from "../ExperienceCard";
+import { useInView } from "react-intersection-observer";
 
 export default function AboutSection() {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+
   return (
-    <div className="flex flex-col gap-16 md:gap-24 min-h-screen justify-center">
+    <div
+      className={`flex flex-col gap-16 md:gap-24 min-h-screen justify-center transition-opacity duration-[1.5s] ${
+        inView ? "opacity-100" : "opacity-0"
+      }`}
+      ref={ref}
+    >
       <section
         id="about"
         className="flex flex-col-reverse gap-8 justify-center md:grid grid-cols-[2fr_3fr] items-center"

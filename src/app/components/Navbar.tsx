@@ -9,6 +9,8 @@ import Hamburger from "hamburger-react";
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isNavbarTransitioning, setIsNavbarTransitioning] =
+    useState<boolean>(false);
   const [isMenuTransitioning, setIsMenuTransitioning] =
     useState<boolean>(false);
 
@@ -37,6 +39,10 @@ export default function Navbar() {
       setIsMenuTransitioning(false);
     }
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    setTimeout(() => setIsNavbarTransitioning(true), 10);
+  }, []);
 
   const navLinks = ["Home", "About", "Projects", "Contact"];
 
@@ -134,7 +140,11 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1 z-50">
+    <nav
+      className={`fixed top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1 z-50 transition-transform duration-[2s] ease-in-out ${
+        isNavbarTransitioning ? "translate-y-0" : "-translate-y-96"
+      }`}
+    >
       <Image
         src="/logo-no-background.png"
         alt="Logo"
