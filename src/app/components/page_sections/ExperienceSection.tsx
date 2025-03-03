@@ -1,4 +1,4 @@
-import ExperienceCard from "./ExperienceCard";
+import ExperienceCard from "../ExperienceCard";
 
 export default function ExperienceSection() {
   return (
