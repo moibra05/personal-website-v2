@@ -3,13 +3,34 @@
 import Image from "next/image";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function ContactSection() {
-  const onSubmit = (value) => {
-    console.log(values);
+  const onSubmit = async () => {
+    try {
+      await axios.post("/contact", values);
+      toast.success("Message sent successfully!");
+    } catch (error) {
+      toast.error(
+        `Failed to send message. Please try again later. Erorr: ${error}`
+      );
+    } finally {
+      resetForm();
+      setSubmitting(false);
+    }
   };
 
-  const { handleSubmit, handleChange, values, errors, touched } = useFormik({
+  const {
+    handleSubmit,
+    handleChange,
+    values,
+    errors,
+    touched,
+    resetForm,
+    isSubmitting,
+    setSubmitting,
+  } = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -96,12 +117,19 @@ export default function ContactSection() {
               <div className="error-text">{errors.message}</div>
             )}
           </div>
-          <button
-            type="submit"
-            className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-primary transition-colors duration-300"
-          >
-            Submit
-          </button>
+          {isSubmitting ? (
+            <div className="md:col-span-2 flex items-center justify-center gap-2">
+              <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              <div className="md:col-span-2 text-center">Sending...</div>
+            </div>
+          ) : (
+            <button
+              type="submit"
+              className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-primary transition-colors duration-300"
+            >
+              Submit
+            </button>
+          )}
         </form>
       </div>
     </section>
