@@ -36,7 +36,7 @@ export default function ProjectCard({ title, description, url, tags }: Props) {
             {description}
           </p>
         </div>
-        <div className="flex gap-2 md:gap-4 z-50 flex-wrap md:group-odd:flex-row-reverse">
+        <div className="flex gap-2 md:gap-4 z-10 flex-wrap md:group-odd:flex-row-reverse">
           {tags.map((tag) => (
             <SkillTag key={tag} skill={tag} />
           ))}
