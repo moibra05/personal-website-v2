@@ -19,12 +19,12 @@ export default function ExperienceCard({
   tags,
 }: Props) {
   return (
-    <div className="flex flex-col w-full md:grid grid-cols-[2fr_3fr] md:gap-8 p-8 shadow-contact-form-shadow rounded-2xl">
+    <div className="flex flex-col w-full md:grid grid-cols-[2fr_3fr] md:gap-8 p-8 shadow-contact-form-shadow rounded-2xl ">
       <p className="font-light text-base uppercase mb-2 md:text-center sm:text-lg">
         {startDate} - {endDate}
       </p>
-      <div className="">
-        <p className="text-xl sm:text-2xl">{title}</p>
+      <div>
+        <p className="text-xl sm:text-2xl font-bold">{title}</p>
         <Link
           href="https://www.civiconnect.ca/"
           target="_blank"
