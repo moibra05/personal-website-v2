@@ -67,7 +67,7 @@ export default function ProjectsSection() {
       className="w-full min-h-[50vh] flex flex-col justify-center"
     >
       <div className="md:grid md:grid-cols-[2fr_3fr] gap-8">
-        <h2 className="mb-4 col-start-2 md:uppercase">Projects</h2>
+        <h2 className="mb-4 col-start-2">What I&apos;ve Built . . .</h2>
       </div>
       <div className="flex flex-col gap-16">
         {projects.map((project) => (

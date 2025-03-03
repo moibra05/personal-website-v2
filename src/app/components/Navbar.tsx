@@ -38,7 +38,7 @@ export default function Navbar() {
     }
   }, [isMenuOpen]);
 
-  const navLinks = ["Home", "About", "Experience", "Projects", "Contact"];
+  const navLinks = ["Home", "About", "Projects", "Contact"];
 
   const desktopResumeLink = (
     <Link
