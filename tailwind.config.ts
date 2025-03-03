@@ -20,6 +20,7 @@ export default {
       },
       boxShadow: {
         "navbar-shadow": "0 0px 50px rgba(60, 131, 246, 0.4)",
+        "contact-form-shadow": "0 0 500px rgba(255, 255, 255, 0.05)",
       }
     },
   },
