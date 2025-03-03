@@ -12,7 +12,9 @@ export default function ContactSection() {
       await axios.post("/contact", values);
       toast.success("Message sent successfully!");
     } catch (error) {
-      toast.error(`Failed to send message. Please try again later. Erorr: ${error}`);
+      toast.error(
+        `Failed to send message. Please try again later. Erorr: ${error}`
+      );
     } finally {
       resetForm();
       setSubmitting(false);
@@ -116,7 +118,10 @@ export default function ContactSection() {
             )}
           </div>
           {isSubmitting ? (
-            <div className="md:col-span-2 text-center">Sending...</div>
+            <div className="md:col-span-2 flex items-center justify-center gap-2">
+              <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              <div className="md:col-span-2 text-center">Sending...</div>
+            </div>
           ) : (
             <button
               type="submit"
