@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PT_Sans } from "next/font/google";
 import Navbar from "./components/Navbar";
+import { Toaster } from "react-hot-toast";
 import "./styles/globals.css";
 
 const ptSans = PT_Sans({
@@ -41,6 +42,16 @@ export default function RootLayout({
       <body className={`${ptSans.variable} antialiased bg-primary relative`}>
         <Navbar />
         {children}
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              border: "2px solid var(--primary)",
+              background: "white",
+              padding: "16px",
+            },
+          }}
+        />
         <footer className="absolute bottom-0 w-full text-center py-2 -z-10">
           &copy; {new Date().getFullYear()} Mohamed Ibrahim
         </footer>

@@ -4,14 +4,15 @@ import Image from "next/image";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function ContactSection() {
   const onSubmit = async () => {
     try {
       await axios.post("/contact", values);
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
     } catch (error) {
-      alert(`Failed to send message. Please try again later. Erorr: ${error}`);
+      toast.error(`Failed to send message. Please try again later. Erorr: ${error}`);
     } finally {
       resetForm();
       setSubmitting(false);
