@@ -4,7 +4,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="w-full min-h-[50vh] flex flex-col justify-center"
+      className="w-full min-h-screen flex flex-col justify-center"
     >
       <div className="md:grid md:grid-cols-[2fr_3fr] gap-8">
         <h2 className="mb-4 col-start-2 md:uppercase">Experience</h2>
