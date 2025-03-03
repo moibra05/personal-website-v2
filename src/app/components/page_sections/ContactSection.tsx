@@ -3,13 +3,31 @@
 import Image from "next/image";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 export default function ContactSection() {
-  const onSubmit = () => {
-    console.log(values);
+  const onSubmit = async () => {
+    try {
+      await axios.post("/contact", values);
+      alert("Message sent successfully!");
+    } catch (error) {
+      alert(`Failed to send message. Please try again later. Erorr: ${error}`);
+    } finally {
+      resetForm();
+      setSubmitting(false);
+    }
   };
 
-  const { handleSubmit, handleChange, values, errors, touched } = useFormik({
+  const {
+    handleSubmit,
+    handleChange,
+    values,
+    errors,
+    touched,
+    resetForm,
+    isSubmitting,
+    setSubmitting,
+  } = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -96,12 +114,16 @@ export default function ContactSection() {
               <div className="error-text">{errors.message}</div>
             )}
           </div>
-          <button
-            type="submit"
-            className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-primary transition-colors duration-300"
-          >
-            Submit
-          </button>
+          {isSubmitting ? (
+            <div className="md:col-span-2 text-center">Sending...</div>
+          ) : (
+            <button
+              type="submit"
+              className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-primary transition-colors duration-300"
+            >
+              Submit
+            </button>
+          )}
         </form>
       </div>
     </section>
