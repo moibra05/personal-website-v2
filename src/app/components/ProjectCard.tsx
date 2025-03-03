@@ -31,8 +31,8 @@ export default function ProjectCard({ title, description, url, tags }: Props) {
         <h3 className="text-xl md:text-2xl font-bold md:text-right group-even:text-left">
           {title}
         </h3>
-        <div className="bg-textGray opacity-95 rounded-md p-4 md:p-6 md:pl-16 md:group-even:pl-8 md:group-even:pr-16 shadow-2xl">
-          <p className="text-primary font-bold text-base text-justify">
+        <div className="bg-primary opacity-95 rounded-md p-4 md:p-6 md:pl-16 md:group-even:pl-8 md:group-even:pr-16 shadow-contact-form-shadow">
+          <p className="text-white font-bold text-base text-justify">
             {description}
           </p>
         </div>
