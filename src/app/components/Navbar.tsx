@@ -86,6 +86,7 @@ export default function Navbar() {
               key={link}
               to={link.toLowerCase()}
               smooth={true}
+              offset={-100}
               duration={400}
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl py-2 overflow-hidden"
@@ -116,6 +117,7 @@ export default function Navbar() {
             key={link}
             smooth={true}
             duration={400}
+            offset={-150}
             to={link.toLowerCase()}
             className="py-2 uppercase font-bold group-hover:text-secondary transition-colors duration-200"
           >
