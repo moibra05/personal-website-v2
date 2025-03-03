@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Link } from "react-scroll";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -12,9 +13,7 @@ export default function ContactSection() {
       await axios.post("/contact", values);
       toast.success("Message sent successfully!");
     } catch (error) {
-      toast.error(
-        `Failed to send message. Please try again later. Erorr: ${error}`
-      );
+      toast.error(`Failed to send message. Please try again later.`);
     } finally {
       resetForm();
       setSubmitting(false);
@@ -47,7 +46,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="min-h-[75vh] flex items-center justify-center"
+      className="min-h-[75vh] flex flex-col items-center justify-center"
     >
       <div className="mx-auto w-full md:w-9/12 max-w-3xl p-8 rounded-md shadow-contact-form-shadow">
         <div className="flex justify-between items-center mb-2">
@@ -59,10 +58,10 @@ export default function ContactSection() {
             alt="Contact Me"
           />
         </div>
-        <h4 className="mb-6">
+        <p className="mb-6 text-base">
           Got something on your mind or need to get in touch? Feel free to reach
           out, and I&apos;ll get back to you as soon as I can.
-        </h4>
+        </p>
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 gap-4 md:grid-cols-2"
@@ -125,13 +124,22 @@ export default function ContactSection() {
           ) : (
             <button
               type="submit"
-              className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-primary transition-colors duration-300"
+              className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-black transition-colors duration-300"
             >
               Submit
             </button>
           )}
         </form>
       </div>
+      <Link
+        to="home"
+        href="#home"
+        smooth={true}
+        duration={500}
+        className="pt-16 hover:text-tertiary font-bold text-xl transition-colors duration-300"
+        >
+          Scroll to Top
+        </Link>
     </section>
   );
 }

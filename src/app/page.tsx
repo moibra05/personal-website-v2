@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <HomeSection />
-      <main className="flex flex-col gap-24 max-w-screen-xl mx-auto px-8 pb-20">
+      <main className="flex flex-col gap-24 max-w-screen-xl mx-auto px-8 pb-20 mt-8 lg:mt-16">
         <AboutSection />
         <ProjectsSection />
         <ContactSection />
