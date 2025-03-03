@@ -48,6 +48,7 @@ export default function RootLayout({
             style: {
               border: "2px solid var(--primary)",
               background: "white",
+              textAlign: "center",
               padding: "16px",
             },
           }}

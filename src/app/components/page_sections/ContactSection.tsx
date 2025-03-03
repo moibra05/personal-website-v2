@@ -13,7 +13,7 @@ export default function ContactSection() {
       toast.success("Message sent successfully!");
     } catch (error) {
       toast.error(
-        `Failed to send message. Please try again later. Erorr: ${error}`
+        `Failed to send message. Please try again later.`
       );
     } finally {
       resetForm();
