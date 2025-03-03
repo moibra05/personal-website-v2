@@ -59,6 +59,7 @@ export default function HomeSection() {
           <Link
             className="text-white border-[3px] rounded-full p-1 group hover:cursor-pointer hover:border-secondary transition-colors duration-300"
             href="https://github.com/moibra05"
+            aria-label="GitHub"
             target="_blank"
           >
             <FontAwesomeIcon
@@ -69,6 +70,7 @@ export default function HomeSection() {
           <Link
             className="text-white border-[3px] rounded-full p-1 group hover:cursor-pointer hover:border-secondary transition-colors duration-300"
             href="https://www.linkedin.com/in/moibra2005/"
+            aria-label="LinkedIn"
             target="_blank"
           >
             <FontAwesomeIcon
@@ -79,6 +81,7 @@ export default function HomeSection() {
           <Link
             className="text-white border-[3px] rounded-full p-1 group hover:cursor-pointer hover:border-secondary transition-colors duration-300"
             href="mailto:mohamedhassen.ibrahim@mail.utoronto.ca"
+            aria-label="Email"
             target="_blank"
           >
             <FontAwesomeIcon

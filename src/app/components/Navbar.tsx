@@ -85,6 +85,7 @@ export default function Navbar() {
             <ScrollLink
               key={link}
               to={link.toLowerCase()}
+              href={`#${link.toLowerCase()}`}
               smooth={true}
               offset={-100}
               duration={400}
@@ -119,6 +120,7 @@ export default function Navbar() {
             duration={400}
             offset={-150}
             to={link.toLowerCase()}
+            href={`#${link.toLowerCase()}`}
             className="py-2 uppercase font-bold group-hover:text-secondary transition-colors duration-200"
           >
             {link}

@@ -59,10 +59,10 @@ export default function ContactSection() {
             alt="Contact Me"
           />
         </div>
-        <h4 className="mb-6">
+        <p className="mb-6 text-base">
           Got something on your mind or need to get in touch? Feel free to reach
           out, and I&apos;ll get back to you as soon as I can.
-        </h4>
+        </p>
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 gap-4 md:grid-cols-2"
@@ -125,7 +125,7 @@ export default function ContactSection() {
           ) : (
             <button
               type="submit"
-              className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-primary transition-colors duration-300"
+              className="md:col-span-2 bg-secondary py-2 rounded-md font-bold hover:bg-tertiary hover:text-black transition-colors duration-300"
             >
               Submit
             </button>
