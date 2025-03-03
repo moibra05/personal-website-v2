@@ -38,7 +38,7 @@ export default function Navbar() {
     }
   }, [isMenuOpen]);
 
-  const navLinks = ["Home", "About", "Experience", "Projects", "Contact"];
+  const navLinks = ["Home", "About", "Projects", "Contact"];
 
   const desktopResumeLink = (
     <Link
@@ -86,6 +86,7 @@ export default function Navbar() {
               key={link}
               to={link.toLowerCase()}
               smooth={true}
+              offset={-100}
               duration={400}
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl py-2 overflow-hidden"
@@ -116,6 +117,7 @@ export default function Navbar() {
             key={link}
             smooth={true}
             duration={400}
+            offset={-150}
             to={link.toLowerCase()}
             className="py-2 uppercase font-bold group-hover:text-secondary transition-colors duration-200"
           >
@@ -130,7 +132,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1">
+    <nav className="fixed top-0 left-0 right-0 bg-primary p-4 pl-0 flex justify-between items-center shadow-navbar-shadow text-white1 z-50">
       <Image
         src="/logo-no-background.png"
         alt="Logo"

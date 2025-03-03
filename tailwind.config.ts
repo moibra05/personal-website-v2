@@ -11,6 +11,7 @@ export default {
       colors: {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
+        tertiary: "var(--tertiary)",
         textGray: "var(--text-gray)",
         white1: "var(--white-1)",
       },
