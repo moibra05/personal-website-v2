@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PT_Sans } from "next/font/google";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import "./styles/globals.css";
 
@@ -39,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ptSans.variable} antialiased bg-primary relative`}>
+      <body className={`${ptSans.variable} antialiased bg-primary relative overflow-x-hidden`}>
         <Navbar />
         {children}
         <Toaster
@@ -53,9 +54,7 @@ export default function RootLayout({
             },
           }}
         />
-        <footer className="absolute bottom-0 w-full text-center py-2 -z-10">
-          &copy; {new Date().getFullYear()} Mohamed Ibrahim
-        </footer>
+        <Footer />
       </body>
     </html>
   );
