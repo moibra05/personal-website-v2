@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { PT_Sans } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -46,6 +47,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
         <Toaster
           position="top-center"
           toastOptions={{
@@ -57,7 +59,7 @@ export default function RootLayout({
             },
           }}
         />
-        <Footer />
+        <Analytics />
       </body>
     </html>
   );
