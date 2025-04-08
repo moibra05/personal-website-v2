@@ -58,6 +58,19 @@ export default function AboutSection() {
         </div>
         <div className="flex flex-col gap-8">
           <ExperienceCard
+            title="Software Developer"
+            company="Marsatek"
+            startDate="February 2025"
+            endDate="March 2025"
+            description="Engineered an AI-powered berth planning system using 
+            Java, Spring Boot, and PostgreSQL, reducing vessel wait times by 
+            15%. Built and deployed secure RESTful APIs to improve data 
+            exchange efficiency, and collaborated on a full-stack solution with 
+            React, TypeScript, and TailwindCSS, ensuring seamless integration 
+            and clean version control."
+            tags={["Java", "Spring Boot", "PostgreSQL", "React", "Docker"]}
+          />
+          <ExperienceCard
             title="Web Development Associate"
             company="Civiconnect"
             startDate="January 2025"
