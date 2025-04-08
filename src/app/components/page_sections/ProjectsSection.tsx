@@ -48,7 +48,7 @@ export default function ProjectsSection() {
         Gaussian blur, and color quantization. The tool allows users to easily \
         transform and manipulate images with these effects, offering a \
         practical and efficient way to modify photos.",
-      url: "https://github.com/moibra05/Soaring",
+      url: "https://github.com/moibra05/photo-manipulator",
       tags: ["Python", "Pillow"],
     },
     {
