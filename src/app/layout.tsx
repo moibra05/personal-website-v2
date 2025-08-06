@@ -32,7 +32,12 @@ export const metadata: Metadata = {
     "University of Toronto",
     "Computer Science",
   ],
-  authors: [{ name: "Mohamed Ibrahim", url: "https://yourwebsite.com" }],
+  authors: [
+    {
+      name: "Mohamed Ibrahim",
+      url: "https://personal-website-v2-iota.vercel.app/",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -43,10 +48,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ptSans.variable} antialiased bg-primary relative overflow-x-hidden`}
+        className={`${ptSans.variable} antialiased bg-primary relative overflow-x-hidden min-h-screen`}
       >
         <Navbar />
-        {children}
+        <div className="w-full overflow-x-hidden">{children}</div>
         <Footer />
         <Toaster
           position="top-center"

@@ -8,6 +8,7 @@ type Props = {
   endDate: string;
   description: string;
   tags?: string[];
+  companyUrl?: string;
 };
 
 export default function ExperienceCard({
@@ -17,26 +18,65 @@ export default function ExperienceCard({
   endDate,
   description,
   tags,
+  companyUrl = "#",
 }: Props) {
   return (
-    <div className="flex flex-col w-full md:grid grid-cols-[2fr_3fr] md:gap-8 p-8 shadow-contact-form-shadow rounded-2xl">
-      <p className="font-light text-base uppercase mb-2 md:text-center sm:text-lg">
-        {startDate} - {endDate}
-      </p>
-      <div>
-        <p className="text-xl sm:text-2xl font-bold">{title}</p>
-        <Link
-          href="https://www.civiconnect.ca/"
-          target="_blank"
-          className="text-xl italic sm:text-xl hover:text-secondary transition-colors duration-150"
-        >
-          {company}
-        </Link>
-        <p className="text-base sm:text-xl mt-2">{description}</p>
-        <div className="flex flex-wrap gap-4 mt-4">
-          {tags?.map((tag) => (
-            <SkillTag key={tag} skill={tag} />
-          ))}
+    <div className="group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 max-w-5xl mx-auto">
+      <div className="flex flex-col md:grid md:grid-cols-[250px_1fr] gap-6">
+        {/* Date section */}
+        <div className="flex flex-col">
+          <div className="inline-flex items-center gap-2 text-blue-400 font-semibold uppercase tracking-wide mb-2">
+            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+            <span>
+              {startDate} - {endDate}
+            </span>
+          </div>
+          <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent md:hidden"></div>
+        </div>
+
+        {/* Content section */}
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
+              {title}
+            </h3>
+            <Link
+              href={companyUrl}
+              target="_blank"
+              className="inline-flex items-center text-lg md:text-xl font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200 group/link"
+            >
+              <span className="border-b border-transparent group-hover/link:border-blue-300 transition-colors duration-200">
+                {company}
+              </span>
+              <svg
+                className="w-4 h-4 ml-2 opacity-0 group-hover/link:opacity-100 transition-opacity duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </Link>
+          </div>
+
+          <p className="text-gray-300 leading-relaxed text-base md:text-lg">
+            {description}
+          </p>
+
+          {tags && tags.length > 0 && (
+            <div className="pt-2">
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <SkillTag key={tag} skill={tag} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
