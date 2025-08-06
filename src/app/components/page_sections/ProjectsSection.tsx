@@ -1,9 +1,37 @@
-"use client"
+"use client";
 
+import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 import ProjectCard from "../ProjectCard";
 
 export default function ProjectsSection() {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 2; // Show 2 projects per page
+
   const projects = [
+    {
+      title: "GLOW | TempTracker",
+      description:
+        "Developed a full-stack web application for community-driven \
+        environmental temperature monitoring featuring CSV data upload, \
+        interactive map visualization with Leaflet.js, and a badge system \
+        rewarding user engagement. Implemented secure authentication, \
+        role-based access control, and profile management using \
+        React/TypeScript, Node.js/Express, and Supabase. Utilized Agile \
+        methodologies with weekly sprints, successfully processing 10,000+ \
+        temperature data points from diverse geographic locations",
+      url: "http://4.236.162.53:3000/",
+      tags: [
+        "Next.js",
+        "React",
+        "Supabase",
+        "Express.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Jira",
+      ],
+    },
     {
       title: "Planetze",
       description:
@@ -63,25 +91,161 @@ export default function ProjectsSection() {
     },
   ];
 
+  // Calculate pagination
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = projects.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
+
+  const goToPage = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const goToPrevious = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+
+  const goToNext = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
+
   return (
     <section
       id="projects"
-      className="w-full min-h-[50vh] flex flex-col justify-center"
+      className={`py-16 md:py-24 transition-opacity duration-[1.5s] ${
+        inView ? "opacity-100" : "opacity-0"
+      }`}
+      ref={ref}
     >
-      <div className="md:grid md:grid-cols-[2fr_3fr] gap-8">
-        <h2 className="mb-4 col-start-2">What I&apos;ve Built . . .</h2>
+      {/* Header */}
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-3 text-blue-400 font-semibold text-sm uppercase tracking-wider mb-2">
+          <div className="w-8 h-px bg-gradient-to-r from-blue-500 to-blue-300"></div>
+          <span>Portfolio</span>
+          <div className="w-8 h-px bg-gradient-to-r from-blue-300 to-blue-500"></div>
+        </div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight">
+          What I&apos;ve Built
+        </h2>
+        <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          A collection of projects that showcase my journey in software
+          development
+        </p>
       </div>
-      <div className="flex flex-col gap-16">
-        {projects.map((project) => (
-          <ProjectCard
+
+      {/* Projects Grid */}
+      <div className="space-y-12 md:space-y-16 mb-12">
+        {currentProjects.map((project, index) => (
+          <div
             key={project.title}
-            title={project.title}
-            description={project.description}
-            url={project.url}
-            tags={project.tags}
-          />
+            className={`transition-all duration-500 ${
+              inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+            style={{ transitionDelay: `${index * 200}ms` }}
+          >
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              url={project.url}
+              tags={project.tags}
+            />
+          </div>
         ))}
       </div>
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center space-x-4">
+          {/* Previous Button */}
+          <button
+            onClick={goToPrevious}
+            disabled={currentPage === 1}
+            className={`group flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+              currentPage === 1
+                ? "text-gray-500 cursor-not-allowed"
+                : "text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 border border-transparent hover:border-blue-500/30"
+            }`}
+          >
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${
+                currentPage !== 1 ? "group-hover:-translate-x-1" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span>Previous</span>
+          </button>
+
+          {/* Page Numbers */}
+          <div className="flex items-center space-x-2">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (pageNumber) => (
+                <button
+                  key={pageNumber}
+                  onClick={() => goToPage(pageNumber)}
+                  className={`w-10 h-10 rounded-full font-semibold transition-all duration-300 ${
+                    currentPage === pageNumber
+                      ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25 scale-110"
+                      : "text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 border border-gray-700/50 hover:border-blue-500/30"
+                  }`}
+                >
+                  {pageNumber}
+                </button>
+              )
+            )}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={goToNext}
+            disabled={currentPage === totalPages}
+            className={`group flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+              currentPage === totalPages
+                ? "text-gray-500 cursor-not-allowed"
+                : "text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 border border-transparent hover:border-blue-500/30"
+            }`}
+          >
+            <span>Next</span>
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${
+                currentPage !== totalPages ? "group-hover:translate-x-1" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
+
+      {/* Page Indicator */}
+      {totalPages > 1 && (
+        <div className="text-center mt-6">
+          <p className="text-sm text-gray-500">
+            Showing {indexOfFirstProject + 1}-
+            {Math.min(indexOfLastProject, projects.length)} of {projects.length}{" "}
+            projects
+          </p>
+        </div>
+      )}
     </section>
   );
 }
