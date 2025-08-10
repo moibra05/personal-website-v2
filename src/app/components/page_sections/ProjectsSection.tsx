@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import ProjectCard from "../ProjectCard";
 
 export default function ProjectsSection() {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 2; // Show 2 projects per page
 

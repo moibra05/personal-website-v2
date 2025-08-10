@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function ProjectCard({ title, description, url, tags }: Props) {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
 
   return (
     <div
