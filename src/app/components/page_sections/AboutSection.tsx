@@ -63,43 +63,50 @@ export default function AboutSection() {
                 </span>
                 . I&apos;m a Computer Science student at the{" "}
                 <span className="text-blue-300">University of Toronto</span>,
-                focusing on{" "}
+                specializing in{" "}
                 <span className="text-blue-300">Software Engineering</span>.
-                I&apos;m passionate about building clean, reliable software and
-                solving meaningful problems through technology. I enjoy working
-                across the stack and constantly look for ways to improve both
-                how I write code and how users experience it.
+                I enjoy building reliable, user-focused software and working across
+                backend systems, developer tooling, and full-stack applications. I&apos;m
+                especially interested in solving technical problems that improve how
+                people build, manage, and interact with software.
               </p>
             </div>
 
             <p className="text-base md:text-lg leading-relaxed">
-              I&apos;ve completed internships at{" "}
+              Most recently, I worked as a{" "}
+              <span className="text-blue-300 font-semibold">
+                Full-Stack Software Engineer Intern at Mozilla
+              </span>
+              , contributing to Nimbus and Experimenter, Mozilla&apos;s experimentation
+              platform. My work included building cross-platform configuration validation
+              tooling, rebuilding experiment results workflows with{" "}
+              <span className="text-blue-300">Django</span> and{" "}
+              <span className="text-blue-300">HTMX</span>, implementing a dedicated
+              rollout state machine, and contributing to the{" "}
+              <span className="text-blue-300">Rust Nimbus SDK</span>.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed">
+              I&apos;ve also worked at{" "}
               <span className="text-blue-300">Marsatek</span> and{" "}
-              <span className="text-blue-300">Civiconnect</span>, where I worked
-              on full-stack web applications using tools like{" "}
-              <span className="text-blue-300">React</span>,{" "}
-              <span className="text-blue-300">Spring Boot</span>, and{" "}
-              <span className="text-blue-300">Supabase</span>. I&apos;ve also
-              built several personal and team-based projects, including{" "}
-              <span className="text-blue-300">Temp Tracker</span>, an
-              environmental data tracking app, and{" "}
-              <span className="text-blue-300">Career Path AI</span>, a career
-              recommendation tool developed at Hack the Valley.
+              <span className="text-blue-300">Civiconnect</span>, where I built
+              full-stack applications and backend services using technologies such as{" "}
+              <span className="text-blue-300">Spring Boot</span>,{" "}
+              <span className="text-blue-300">React</span>, and{" "}
+              <span className="text-blue-300">PostgreSQL</span>. Outside of work,
+              I&apos;ve built projects like{" "}
+              <span className="text-blue-300">PaperTrail</span>, an automated receipt
+              ingestion and organization platform, and{" "}
+              <span className="text-blue-300">Temp Tracker</span>, an environmental data
+              tracking application.
             </p>
 
             <p className="text-base md:text-lg leading-relaxed">
-              I&apos;ll be joining{" "}
-              <span className="text-blue-300 font-semibold">Mozilla</span> for
-              an eight-month internship, where I&apos;m excited to contribute to
-              large-scale projects and grow alongside experienced engineers.
-            </p>
-
-            <p className="text-base md:text-lg leading-relaxed">
-              Outside of tech, I&apos;m into running and lifting, both of which
-              keep me focused and disciplined. I&apos;m always looking to
-              challenge myself, and my goal is to build software that&apos;s not
-              just functional, but{" "}
-              <span className="text-blue-300 font-semibold">impactful</span>.
+              Outside of tech, I&apos;m into running and lifting, both of which keep me
+              focused and disciplined. I&apos;m always looking for opportunities to take
+              on challenging problems, grow as an engineer, and build software that is
+              not only functional, but{" "}
+              <span className="text-blue-300 font-semibold">meaningful</span>.
             </p>
           </div>
 

@@ -30,8 +30,23 @@ export default function ExperienceSection() {
           company="Mozilla"
           companyUrl="https://www.mozilla.org/"
           startDate="September 2025"
-          endDate="April 2026"
-          description="Upcoming..."
+          endDate="August 2026"
+          description="During my internship at Mozilla, I worked on Nimbus and
+           Experimenter, Mozilla's experimentation platform, with a focus on
+           improving how teams create, manage, and analyze experiments and
+           rollouts. I built a versioned targeting-context pipeline that pulled
+           definitions from Firefox Desktop, Android, and iOS source
+           repositories so configurations could be validated against the fields
+           supported by each platform. I also rebuilt the Experiment Results
+           page with Django and HTMX, introduced daily, weekly, and overall
+           metric views, and improved the surrounding navigation and backend
+           data flow. Another major part of my work was separating rollouts
+           from the existing experiment flow by creating a standalone rollout
+           experience and implementing a dedicated state machine for managing
+           transitions between Draft, Preview, Live, Paused, and Complete. I
+           also contributed to the Rust Nimbus SDK by fixing inconsistent
+           enrollment-event telemetry across mobile and desktop platforms."
+          tags={["Python", "Django", "JavaScript", "HTMX", "Rust", "Docker"]}
         />
         <ExperienceCard
           title="Software Developer"
@@ -39,12 +54,12 @@ export default function ExperienceSection() {
           companyUrl="https://www.marsatek.com/"
           startDate="February 2025"
           endDate="March 2025"
-          description="Engineered an AI-powered berth planning system using 
-            Java, Spring Boot, and PostgreSQL, reducing vessel wait times by 
-            15%. Built and deployed secure RESTful APIs to improve data 
-            exchange efficiency, and collaborated on a full-stack solution with 
-            React, TypeScript, and TailwindCSS, ensuring seamless integration 
-            and clean version control."
+          description="At Marsatek, I worked on a berth-planning system using
+          Java, Spring Boot, React, and PostgreSQL. My work focused on building
+          backend services, REST APIs, and CSV and Excel import workflows with
+          validation, dynamic repository lookup, and reflection-based dat
+          mapping. I also contributed to testing and improving how operational
+          scheduling data moved between the frontend, backend, and database."
           tags={["Java", "Spring Boot", "PostgreSQL", "React", "Docker"]}
         />
         <ExperienceCard
